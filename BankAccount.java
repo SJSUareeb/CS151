@@ -1,12 +1,13 @@
 package bank;
 
+
 /**
  * A bank account has a balance that can be changed by 
  * deposits and withdrawals
  *  base class obtained from my time in CS 46a
  *  modified with a comparable
  */
-public class BankAccount implements Comparable
+public class BankAccount
 {  
     private double balance;
     private String accountId;
@@ -59,10 +60,4 @@ public class BankAccount implements Comparable
         return balance;
     }
 
-    public int compareTo(Object account)
-    {
-        BankAccount other = (BankAccount) account;
-        
-        return (this.accountId.compareTo(other.accountId));
-    }
 }

@@ -1,4 +1,5 @@
 package bank;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,7 +17,8 @@ public class BankAccountTester {
         accounts.add(new BankAccount(12345.67, "Justin"));
         accounts.add(new BankAccount(6657562.00, "Mom"));
 
-        Collections.sort(accounts);
+        BankAccountComparator comp = new BankAccountComparator();
+        Collections.sort(accounts, comp);
         for (BankAccount b: accounts)
         {
             System.out.printf("%-18s%s%n",b.getAccountId(), b.getBalance());              
