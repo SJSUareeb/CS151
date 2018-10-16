@@ -6,7 +6,13 @@ public class FilterTester {
 		String[] words = {"amy", "cry", "why", "hi", "Areeb", "Kuristina", "Angus", "dolt" };
 		
 		Filterer threeLetters = new Filterer();
-		threeLetters.filter(words,  )
+		Filter coffee = new Filterer();
+		
+		String[] filtered = threeLetters.filter(words, coffee);
+		 for(String s: filtered)
+		 {
+			 System.out.println(s);
+		 }
 		
     }
     
