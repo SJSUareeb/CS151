@@ -1,8 +1,10 @@
+package frame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
+
 public class FrameTester
 {
    public static void main(String[] args)
@@ -11,31 +13,36 @@ public class FrameTester
       final int FIELD_WIDTH = 20;
       JTextField textField = new JTextField(FIELD_WIDTH);
       textField.setText("Fill the circle with a color!");
-
-      JButton red = new JButton("Red");
       
-      red.addActionListener(new
-    		  ActionListener()
-    		  {
-    		  public void actionPerformed(ActionEvent event)
-    		  {
-    		  // Button action goes here
-    		  textField.setText("Hello, World!");
-    		  }
-    		  });
+      CircleIcon circle = new CircleIcon(20);
+      JLabel label = new JLabel(circle);
+      
+      JButton red = new JButton("Red");
+      red.addActionListener(new ActionListener()
+          {
+            public void actionPerformed(ActionEvent event)
+            {
+              // Button action goes here
+              circle.setCurrentColor(Color.RED);
+              
+              
+            }
+          } );
+     
+      
       JButton blue = new JButton("Blue");
       JButton green = new JButton("Green");
 
       
-      red.addActionListener(new
-    		  ActionListener()
-    		  {
-    		  public void actionPerformed(ActionEvent event)
-    		  {
-    		  // Button action goes here
-    		  textField.setText("Hello, World!");
-    		  }
-    		  });
+      blue.addActionListener(new
+          ActionListener()
+          {
+          public void actionPerformed(ActionEvent event)
+          {
+          // Button action goes here
+          
+          }
+          });
       
       frame.setLayout(new FlowLayout());
 
@@ -44,6 +51,7 @@ public class FrameTester
       frame.add(blue);
       frame.add(green);
       frame.add(textField);
+      
 
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.pack();
@@ -51,6 +59,4 @@ public class FrameTester
    }
 
 }
-	
-
-
+  
