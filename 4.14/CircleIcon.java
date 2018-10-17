@@ -41,16 +41,6 @@ public class CircleIcon implements Icon{
 	{
 		currentColor = c;
 	}
-	
-	/*public void repaintIconRed(Graphics g)
-	{
-		Graphics2D g2 = (Graphics2D) g;
-		if()
-		{
-			g2.setColor(Color.RED);
-			g2.fill(this);
-		}
-	}*/
 
 	private int size;
 }
