@@ -10,10 +10,12 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 import javax.swing.Icon;
+
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 public class ClockIcon implements Icon {
 
-	private int rotationAngle;
+	
 	public ClockIcon(int aSize) {
 		size = aSize;
 	}
@@ -38,27 +40,29 @@ public class ClockIcon implements Icon {
 	
 		g2.draw(circle);
 		
+		GregorianCalendar time = new GregorianCalendar();
+		
 		Point2D.Double start = new Point2D.Double(size/2, size/2 );
-		Point2D.Double end = new Point2D.Double(size/2, 0);
+		Point2D.Double end = new Point2D.Double(size/2, size/5);
 		Line2D hour = new Line2D.Double(start, end);
-		int hours = GregorianCalendar.HOUR;
-		g2.rotate(Math.toRadians(360/12 * (hours + 1)), size/2, size/2);
+		int hours = time.get(Calendar.HOUR);
+		g2.rotate(Math.toRadians(360/12 * hours ), size/2, size/2);
 		g2.draw(hour);
 		
 		Point2D.Double startMinute = new Point2D.Double(size/2, size/2 );
 		Point2D.Double endMinute = new Point2D.Double(size/2, size/8);
 		Line2D minute = new Line2D.Double(startMinute, endMinute);
 		g2.setColor(Color.BLUE);
-		int minutes = GregorianCalendar.MINUTE;
-		g2.rotate(Math.toRadians(360/60 * minutes), size/2, size/2);
+		int minutes = time.get(Calendar.MINUTE);
+		g2.rotate(Math.toRadians(360/60 * (minutes+15)), size/2, size/2);
 		g2.draw(minute);
 		
 		Point2D.Double startSecond = new Point2D.Double(size/2, size/2 );
 		Point2D.Double endSecond = new Point2D.Double(size/2, size/9);
 		Line2D second = new Line2D.Double(startSecond, endSecond);
 		g2.setColor(Color.RED);
-		int seconds = GregorianCalendar.SECOND;
-		g2.rotate(Math.toRadians(360/60 * seconds), size/2, size/2);
+		int seconds = time.get(Calendar.SECOND);
+		g2.rotate(Math.toRadians(360/60 * (seconds + 30)), size/2, size/2);
 		g2.draw(second);
 		
 		
